@@ -25,8 +25,10 @@ const submitContact=async (req,res) => {
       }
       if(adminPhone)
       {
+        
         const smsText=`Query:${message.slice(0,120)}${message.length>120?'...' :''} |From:${name || 'Unknown'}`
-        await sendSMS(adminPhone,smsText)
+        await sendSMS(adminPhone,smsText)   
+          
       }
       return res.json({success:true,message:'Submitted'})
 

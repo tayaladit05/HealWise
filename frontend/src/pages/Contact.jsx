@@ -30,8 +30,8 @@ const Contact = () => {
           <div>
             <h2 className="text-gray-700 font-semibold text-lg mb-1">CONTACT</h2>
             <p className="text-gray-600 leading-relaxed">
-              Phone: <a href="tel:8707267182" className="text-[#4c54ff] hover:underline focus:outline-none focus:ring-2 focus:ring-[#4c54ff] rounded-sm">8707267182</a><br />
-              Email: <a href="mailto:anshulakgec@gmail.com" className="text-[#4c54ff] hover:underline break-all focus:outline-none focus:ring-2 focus:ring-[#4c54ff] rounded-sm">anshulakgec@gmail.com</a>
+              Phone: <a href="tel:7599444086" className="text-[#4c54ff] hover:underline focus:outline-none focus:ring-2 focus:ring-[#4c54ff] rounded-sm">8707267182</a><br />
+              Email: <a href="mailto:tayaladit5@gmail.com" className="text-[#4c54ff] hover:underline break-all focus:outline-none focus:ring-2 focus:ring-[#4c54ff] rounded-sm">anshulakgec@gmail.com</a>
             </p>
           </div>
           <div>

@@ -5,6 +5,7 @@ const SymptomChecker = () => {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
+  const API = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,7 +14,7 @@ const SymptomChecker = () => {
     setResult(null);
     try {
       // Replace with your backend endpoint that calls OpenAI
-      const response = await fetch('http://localhost:4000/api/symptom-checker', {
+      const response = await fetch(`${API}/api/symptom-checker`, {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ symptoms: input })

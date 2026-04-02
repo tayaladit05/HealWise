@@ -7,18 +7,73 @@ const openai = process.env.OPENAI_API_KEY
   ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
   : null;
 
+const specialtyRules = [
+  {
+    specialty: "Cardiologist",
+    keywords: ["chest pain", "palpitation", "heart", "bp", "blood pressure", "shortness of breath"],
+  },
+  {
+    specialty: "Dermatologist",
+    keywords: ["rash", "acne", "itching", "eczema", "skin", "fungal", "allergy"],
+  },
+  {
+    specialty: "Neurologist",
+    keywords: ["headache", "migraine", "seizure", "numbness", "dizziness", "stroke"],
+  },
+  {
+    specialty: "Gastroenterologist",
+    keywords: ["stomach", "abdominal", "vomit", "nausea", "acidity", "constipation", "diarrhea", "liver"],
+  },
+  {
+    specialty: "Gynecologist",
+    keywords: ["period", "pregnancy", "pcod", "pcos", "menstrual", "uterus", "vaginal"],
+  },
+  {
+    specialty: "Pediatrician",
+    keywords: ["child", "baby", "infant", "newborn", "kid"],
+  },
+  {
+    specialty: "Orthopedic",
+    keywords: ["joint", "knee", "back pain", "fracture", "bone", "shoulder", "neck pain"],
+  },
+  {
+    specialty: "ENT Specialist",
+    keywords: ["ear", "nose", "throat", "sinus", "tonsil", "hearing"],
+  },
+  {
+    specialty: "Pulmonologist",
+    keywords: ["cough", "wheezing", "asthma", "breathing", "lung", "phlegm"],
+  },
+  {
+    specialty: "Psychiatrist",
+    keywords: ["anxiety", "depression", "panic", "insomnia", "stress", "mood"],
+  },
+];
+
+function fallbackSpecialty(symptoms) {
+  const text = (symptoms || "").toLowerCase();
+  let best = { specialty: "General Physician", score: 0 };
+
+  for (const rule of specialtyRules) {
+    const score = rule.keywords.reduce((acc, key) => (text.includes(key) ? acc + 1 : acc), 0);
+    if (score > best.score) {
+      best = { specialty: rule.specialty, score };
+    }
+  }
+
+  return best.specialty;
+}
+
 router.post("/symptom-checker", async (req, res) => {
   const { symptoms } = req.body;
-
-  if (!openai) {
-    return res
-      .status(503)
-      .json({ message: "Symptom checker is not configured. Set OPENAI_API_KEY." });
-  }
 
   // Validate input
   if (!symptoms || !symptoms.trim()) {
     return res.status(400).json({ message: "Please provide symptoms." });
+  }
+
+  if (!openai) {
+    return res.json({ specialty: fallbackSpecialty(symptoms), source: "fallback" });
   }
 
   try {
@@ -43,15 +98,15 @@ Answer:
       temperature: 0, // deterministic output
     });
 
-    const specialty = completion.choices[0].message.content.trim();
+    const specialty = completion.choices?.[0]?.message?.content?.trim();
+    if (!specialty) {
+      return res.json({ specialty: fallbackSpecialty(symptoms), source: "fallback" });
+    }
 
-    
-    res.json({ specialty });
+    res.json({ specialty: specialty.replace(/["`]/g, ""), source: "ai" });
   } catch (error) {
-    console.error("❌ OpenAI Error:", error.response?.data || error.message);
-    res
-      .status(500)
-      .json({ message: "AI service error. Please try again later." });
+    console.error("OpenAI Error:", error.message);
+    res.json({ specialty: fallbackSpecialty(symptoms), source: "fallback" });
   }
 });
 

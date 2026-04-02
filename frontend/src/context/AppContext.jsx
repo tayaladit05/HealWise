@@ -2,6 +2,7 @@ import {createContext} from "react"
 import { useState,useEffect } from "react"
 import axios from 'axios'
 import {toast} from 'react-toastify'
+import { doctors as staticDoctors } from '../assets/assets'
 
 
 
@@ -26,15 +27,18 @@ const[userData,setUserData]=useState('')
             console.log('Doctors data:', data)
             if(data.success)
             {
-              setDoctors(data.doctors)
+              const apiDoctors = Array.isArray(data.doctors) ? data.doctors : []
+              setDoctors(apiDoctors.length > 0 ? apiDoctors : staticDoctors)
             }
             else
             {
                 toast.error(data.message)
+                setDoctors(staticDoctors)
             }
         } catch (error) {
             console.log(error)
             toast.error(error.message)
+            setDoctors(staticDoctors)
         }
     }
   

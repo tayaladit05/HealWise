@@ -128,6 +128,11 @@ const Doctors = () => {
               </div>
             </div>
           ))}
+          {filterDoc.length === 0 && (
+            <div className='col-span-full border border-dashed border-gray-300 rounded-xl p-6 text-center text-gray-600'>
+              No doctors found for this selection.
+            </div>
+          )}
         </div>
       </div>
     </div>

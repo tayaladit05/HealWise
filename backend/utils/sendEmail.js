@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
 
 export default async function sendEmail(to, subject, text) {
   await transporter.sendMail({
-    from: `"HealWise" <${process.env.EMAIL_USER}>`,
+    from: `"MediNexus" <${process.env.EMAIL_USER}>`,
     to,
     subject,
     text

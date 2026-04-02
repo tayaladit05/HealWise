@@ -22,7 +22,7 @@ const App = () => {
   const{aToken}=useContext(AdminContext)
   const {dToken}=useContext(DoctorContext)
   return aToken || dToken?(
-    <div className='bg-[#F8F9FD]'>
+    <div className='min-h-screen bg-linear-to-b from-[#f6fbfa] to-[#f4f7f8]'>
       
       <ToastContainer/>
       <Navbar/>

@@ -114,31 +114,31 @@ const Login = () => {
                 )}
               </div>
               <input className='hidden' id='profile-image-upload' type="file" accept="image/*" onChange={e => setImage(e.target.files[0])} />
-              <label htmlFor='profile-image-upload' className='bg-[#5f6FFF] text-white px-2 py-1 rounded cursor-pointer text-xs mt-1'>Choose Image</label>
+              <label htmlFor='profile-image-upload' className='bg-[#0F766E] text-white px-2 py-1 rounded cursor-pointer text-xs mt-1'>Choose Image</label>
             </div>
             <div className='w-full flex flex-col'>
               <p>Full Name</p>
-              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#5f6FFF]' type="text" onChange={(e)=>setName(e.target.value)} value={name} required/>
+              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#0F766E]' type="text" onChange={(e)=>setName(e.target.value)} value={name} required/>
             </div>
             <div className='w-full flex flex-col'>
               <p>Email</p>
-              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#5f6FFF]' type="email" onChange={(e)=>setEmail(e.target.value)} value={email} required/>
+              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#0F766E]' type="email" onChange={(e)=>setEmail(e.target.value)} value={email} required/>
             </div>
             <div className='w-full flex flex-col'>
               <p>Password</p>
-              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#5f6FFF]' type="password" onChange={(e)=>setPassword(e.target.value)} value={password} required/>
+              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#0F766E]' type="password" onChange={(e)=>setPassword(e.target.value)} value={password} required/>
             </div>
             <div className='w-full flex flex-col'>
               <p>Mobile Number</p>
-              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#5f6FFF]' type="tel" pattern="[0-9]{10}" maxLength={10} minLength={10} onChange={(e)=>setMobile(e.target.value)} value={mobile} required />
+              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#0F766E]' type="tel" pattern="[0-9]{10}" maxLength={10} minLength={10} onChange={(e)=>setMobile(e.target.value)} value={mobile} required />
             </div>
             <div className='w-full flex flex-col'>
               <p>Address Line 1</p>
-              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#5f6FFF]' type="text" onChange={e => setAddress1(e.target.value)} value={address1} required />
+              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#0F766E]' type="text" onChange={e => setAddress1(e.target.value)} value={address1} required />
             </div>
             <div className='w-full flex flex-col'>
               <p>Address Line 2</p>
-              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#5f6FFF]' type="text" onChange={e => setAddress2(e.target.value)} value={address2} required />
+              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#0F766E]' type="text" onChange={e => setAddress2(e.target.value)} value={address2} required />
             </div>
             <div className='w-full flex flex-col'>
               <p>Gender</p>
@@ -153,11 +153,11 @@ const Login = () => {
             </div>
             <div className='w-full flex flex-col'>
               <p>Birthday</p>
-              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#5f6FFF]' type="date" onChange={e => setBirthday(e.target.value)} value={birthday} required />
+              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#0F766E]' type="date" onChange={e => setBirthday(e.target.value)} value={birthday} required />
             </div>
             <div className='w-full flex flex-col'>
               <p>Pincode</p>
-              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#5f6FFF]' type='text' maxLength={6} minLength={6} pattern='[0-9]{6}' value={pincode} onChange={async (e) => {
+              <input className='border border-zinc-300 rounded w-full p-2 mt-1 focus:outline-[#0F766E]' type='text' maxLength={6} minLength={6} pattern='[0-9]{6}' value={pincode} onChange={async (e) => {
                 const val = e.target.value;
                 setPincode(val);
                 if (val.length === 6 && /^[0-9]{6}$/.test(val)) {
@@ -207,10 +207,10 @@ const Login = () => {
       
     
 
-  <button type="submit" className='bg-[#5f6FFF] text-white rounded-md w-full py-2 text-base mt-2'>{state==='Sign Up' ? "Create Account" : "Login"}</button>
+  <button type="submit" className='bg-[#0F766E] text-white rounded-md w-full py-2 text-base mt-2'>{state==='Sign Up' ? "Create Account" : "Login"}</button>
     {
-      state==='Sign Up' ? <p>Already have an account?<span onClick={()=>setState('Login')} className='text-[#5f6FFF] underline cursor-pointer'>Login here</span></p>
-      : <p>Create an new account?<span onClick={()=>setState('Sign Up')} className='text-[#5f6FFF] underline cursor-pointer'>Click here</span></p>
+      state==='Sign Up' ? <p>Already have an account?<span onClick={()=>setState('Login')} className='text-[#0F766E] underline cursor-pointer'>Login here</span></p>
+      : <p>Create an new account?<span onClick={()=>setState('Sign Up')} className='text-[#0F766E] underline cursor-pointer'>Click here</span></p>
     }
     </div>
     

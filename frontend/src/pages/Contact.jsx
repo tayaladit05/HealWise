@@ -10,7 +10,7 @@ const Contact = () => {
       {/* Heading */}
       <div className="pt-12 text-center">
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-800">
-          CONTACT <span className="text-[#4c54ff]">US</span>
+          CONTACT <span className="text-[#0F766E]">US</span>
         </h1>
         <p className="mt-3 max-w-xl mx-auto text-gray-500 text-sm sm:text-base">
           We’d love to hear from you. Reach out for support, partnerships or career opportunities.
@@ -30,16 +30,16 @@ const Contact = () => {
           <div>
             <h2 className="text-gray-700 font-semibold text-lg mb-1">CONTACT</h2>
             <p className="text-gray-600 leading-relaxed">
-              Phone: <a href="tel:7599444086" className="text-[#4c54ff] hover:underline focus:outline-none focus:ring-2 focus:ring-[#4c54ff] rounded-sm">8707267182</a><br />
-              Email: <a href="mailto:tayaladit5@gmail.com" className="text-[#4c54ff] hover:underline break-all focus:outline-none focus:ring-2 focus:ring-[#4c54ff] rounded-sm">anshulakgec@gmail.com</a>
+              Phone: <a href="tel:7599444086" className="text-[#0F766E] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0F766E] rounded-sm">8707267182</a><br />
+              Email: <a href="mailto:tayaladit5@gmail.com" className="text-[#0F766E] hover:underline break-all focus:outline-none focus:ring-2 focus:ring-[#0F766E] rounded-sm">anshulakgec@gmail.com</a>
             </p>
           </div>
           <div>
-            <h2 className="text-gray-700 font-semibold text-lg mb-1">CAREERS AT HealWise</h2>
+            <h2 className="text-gray-700 font-semibold text-lg mb-1">CAREERS AT MediNexus</h2>
             <p className="text-gray-600">Learn more about teams and job openings.</p>
             <button
               onClick={() => { navigate('/vacancies'); window.scrollTo(0, 0); }}
-              className="mt-4 inline-flex items-center justify-center rounded-lg border border-[#4c54ff] px-6 py-3 text-sm font-medium text-[#4c54ff] hover:bg-[#4c54ff] hover:text-white transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4c54ff]"
+              className="mt-4 inline-flex items-center justify-center rounded-lg border border-[#0F766E] px-6 py-3 text-sm font-medium text-[#0F766E] hover:bg-[#0F766E] hover:text-white transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0F766E]"
             >
               Explore Jobs
             </button>
@@ -47,7 +47,7 @@ const Contact = () => {
           <div className="grid sm:grid-cols-2 gap-6 pt-4">
             <div className="rounded-lg border p-5 bg-white shadow-sm hover:shadow-md transition">
               <h3 className="text-sm font-semibold text-gray-700">Support</h3>
-              <p className="mt-1 text-xs sm:text-sm text-gray-600">Need help using HealWise? Reach out any time.</p>
+              <p className="mt-1 text-xs sm:text-sm text-gray-600">Need help using MediNexus? Reach out any time.</p>
             </div>
             <div className="rounded-lg border p-5 bg-white shadow-sm hover:shadow-md transition">
               <h3 className="text-sm font-semibold text-gray-700">Partnerships</h3>
@@ -62,7 +62,7 @@ const Contact = () => {
             <div className="relative w-full aspect-16/10 md:aspect-5/3">
               <img
                 src={contact_image}
-                alt="HealWise contact illustration"
+                alt="MediNexus contact illustration"
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover md:object-contain rounded-xl select-none drop-shadow-sm"
               />

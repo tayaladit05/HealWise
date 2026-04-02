@@ -28,15 +28,15 @@ const Navbar = () => {
     <div className='flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400'>
   <img onClick={()=>{navigate('/');scrollTo(0,0);}} className="w-28 sm:w-36 md:w-44 max-w-full h-auto object-contain cursor-pointer" src={logo} alt="logo" />
       <ul className='hidden md:flex items-start gap-5 font-medium'>
-        <NavLink to="/"><li className='py-1'>HOME</li><hr className='border-none outline-none h-0.5 bg-[#5f6FFF] w-3/5 m-auto hidden' /></NavLink>
-        <NavLink to="/doctors"><li className='py-1'>ALL DOCTORS</li><hr className='border-none outline-none h-0.5 bg-[#5f6FFF] w-3/5 m-auto hidden'/></NavLink>
-        <NavLink to="/about"><li className='py-1'>ABOUT</li><hr className='border-none outline-none h-0.5 bg-[#5f6FFF] w-3/5 m-auto hidden'/></NavLink>
-        <NavLink to="/contact"><li className='py-1'>CONTACT</li><hr className='border-none outline-none h-0.5 bg-[#5f6FFF] w-3/5 m-auto hidden'/></NavLink>
-        <NavLink to="/symptom-checker"><li className='py-1'>SYMPTOM CHECKER</li><hr className='border-none outline-none h-0.5 bg-[#5f6FFF] w-3/5 m-auto hidden'/></NavLink>
-        <NavLink to="/vacancies"><li className='py-1'>VACANCIES</li><hr className='border-none outline-none h-0.5 bg-[#5f6FFF] w-3/5 m-auto hidden'/></NavLink>
+        <NavLink to="/"><li className='py-1'>HOME</li><hr className='border-none outline-none h-0.5 bg-[#0F766E] w-3/5 m-auto hidden' /></NavLink>
+        <NavLink to="/doctors"><li className='py-1'>ALL DOCTORS</li><hr className='border-none outline-none h-0.5 bg-[#0F766E] w-3/5 m-auto hidden'/></NavLink>
+        <NavLink to="/about"><li className='py-1'>ABOUT</li><hr className='border-none outline-none h-0.5 bg-[#0F766E] w-3/5 m-auto hidden'/></NavLink>
+        <NavLink to="/contact"><li className='py-1'>CONTACT</li><hr className='border-none outline-none h-0.5 bg-[#0F766E] w-3/5 m-auto hidden'/></NavLink>
+        <NavLink to="/symptom-checker"><li className='py-1'>SYMPTOM CHECKER</li><hr className='border-none outline-none h-0.5 bg-[#0F766E] w-3/5 m-auto hidden'/></NavLink>
+        <NavLink to="/vacancies"><li className='py-1'>VACANCIES</li><hr className='border-none outline-none h-0.5 bg-[#0F766E] w-3/5 m-auto hidden'/></NavLink>
         <li
           onClick={goToAdmin}
-          className="cursor-pointer select-none rounded-full bg-linear-to-r from-[#5f6FFF] via-indigo-500 to-blue-500 px-4 py-2 text-white shadow-md shadow-blue-500/30 ring-1 ring-white/10 hover:shadow-lg hover:shadow-blue-500/40 hover:brightness-110 transition-all duration-200"
+          className="cursor-pointer select-none rounded-full bg-linear-to-r from-[#0F766E] via-indigo-500 to-blue-500 px-4 py-2 text-white shadow-md shadow-blue-500/30 ring-1 ring-white/10 hover:shadow-lg hover:shadow-blue-500/40 hover:brightness-110 transition-all duration-200"
         >
           ADMIN PANEL
         </li>
@@ -92,7 +92,7 @@ const Navbar = () => {
         
         :<button
             onClick={()=>navigate('/login')}
-            className='hidden md:inline-flex items-center justify-center cursor-pointer select-none rounded-full bg-linear-to-r from-[#5f6FFF] via-indigo-500 to-blue-500 px-7 py-2.5 text-white font-medium shadow-md shadow-blue-500/30 ring-1 ring-white/10 hover:shadow-lg hover:shadow-blue-500/40 hover:brightness-110 active:scale-95 transition-all duration-200'
+            className='hidden md:inline-flex items-center justify-center cursor-pointer select-none rounded-full bg-linear-to-r from-[#0F766E] via-indigo-500 to-blue-500 px-7 py-2.5 text-white font-medium shadow-md shadow-blue-500/30 ring-1 ring-white/10 hover:shadow-lg hover:shadow-blue-500/40 hover:brightness-110 active:scale-95 transition-all duration-200'
           >Create Account</button>
         }
   <img onClick={()=>setShowMenu(true)} className="w-6 md:hidden" src={menu_icon} alt=""/>
@@ -115,7 +115,7 @@ const Navbar = () => {
             <NavLink onClick={()=>setShowMenu(false)} to='/vacancies'><p className='px-4 py-2 rounded inline-block'>Vacancies</p></NavLink>
             <p
               onClick={()=>{setShowMenu(false); goToAdmin();}}
-              className="w-full text-center cursor-pointer select-none rounded-xl bg-linear-to-br from-[#5f6FFF] to-blue-600 px-5 py-2.5 text-white shadow-lg shadow-blue-500/30 ring-1 ring-white/10 active:scale-95 transition-all duration-150"
+              className="w-full text-center cursor-pointer select-none rounded-xl bg-linear-to-br from-[#0F766E] to-blue-600 px-5 py-2.5 text-white shadow-lg shadow-blue-500/30 ring-1 ring-white/10 active:scale-95 transition-all duration-150"
             >
               Admin Panel
             </p>

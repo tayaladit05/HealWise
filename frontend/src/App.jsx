@@ -19,7 +19,7 @@ import MyApplications from './pages/MyApplications.jsx'
 
 const App = () => {
   return (
-    <div className='max-w-full sm:mx-[10%]'>
+    <div className='max-w-full min-h-screen sm:mx-[10%] px-3 sm:px-0'>
       <ToastContainer/>
       <Navbar />
       

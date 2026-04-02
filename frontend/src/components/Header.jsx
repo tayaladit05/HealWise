@@ -8,8 +8,8 @@ import header_img from "../assets/create2.jpeg";
 const Header = () => {
   return (
     <header
-      className="relative bg-[#5f6FFF] rounded-2xl overflow-hidden shadow-lg"
-      aria-label="HealWise hero"
+      className="relative bg-[#0F766E] rounded-2xl overflow-hidden shadow-lg"
+      aria-label="MediNexus hero"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 lg:px-14 py-8 sm:py-10 md:py-14">
         <div className="flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-0">
@@ -62,7 +62,7 @@ const Header = () => {
       </div>
 
       {/* Decorative overlay to ensure text contrast on small screens */}
-      <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-[#5f6FFF]/80 via-[#5f6FFF]/50 to-transparent md:from-transparent md:via-transparent md:to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-[#0F766E]/80 via-[#0F766E]/50 to-transparent md:from-transparent md:via-transparent md:to-transparent" />
     </header>
   );
 };

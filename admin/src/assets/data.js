@@ -96,7 +96,7 @@ export const doctors = [
         about: 'Dr. Naresh Trehan is dedicated to providing holistic healthcare that emphasizes preventive care, timely diagnosis, and advanced treatment approaches.',
         fees: 500,
         address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -110,7 +110,7 @@ export const doctors = [
         about: 'Dr. Vinod Raina is dedicated to providing holistic healthcare that emphasizes prevention, timely diagnosis, and advanced treatment solutions to ensure the best patient outcomes.',
         fees: 600,
         address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -124,7 +124,7 @@ export const doctors = [
         about: 'Dr. Randhir Sud is dedicated to providing patient-centered healthcare, with a strong focus on preventive medicine, early detection, and advanced treatment methods to promote long-term well-being.',
         fees: 1500,
         address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -138,7 +138,7 @@ export const doctors = [
         about: 'Dr.Randhir Sud has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 1000,
         address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -152,7 +152,7 @@ export const doctors = [
         about: 'Prof. Dr. Mohamed Rela is devoted to providing exceptional and holistic healthcare, with a strong emphasis on preventive medicine, early detection, and advanced treatment techniques to enhance patient well-being.',
         fees: 900,
        address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -166,7 +166,7 @@ export const doctors = [
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 1300,
         address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -180,7 +180,7 @@ export const doctors = [
         about: 'Dr. Vikram Kalra is committed to providing holistic and compassionate medical care, emphasizing preventive health measures, timely diagnosis, and advanced treatment approaches to ensure patient wellness.',
         fees: 500,
         address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -194,7 +194,7 @@ export const doctors = [
         about: 'Dr. Shilpa Ghosh is dedicated to providing compassionate and comprehensive healthcare, emphasizing preventive medicine, early detection, and effective treatment strategies to ensure the best outcomes for her patients. Dr. Davis is committed to delivering holistic medical care, focusing on prevention, accurate diagnosis, and advanced therapeutic approaches for overall well-being.',
         fees: 800,
         address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -208,7 +208,7 @@ export const doctors = [
         about: 'Dr. Vivek Vij is dedicated to providing comprehensive and patient-centered healthcare, emphasizing preventive medicine, early detection, and advanced treatment approaches to ensure better health outcomes. Dr.Vivek Jij is devoted to offering holistic medical care, focusing on prevention, timely diagnosis, and effective therapeutic solutions for overall well-being.',
         fees: 2000,
        address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -222,7 +222,7 @@ export const doctors = [
         about: 'Dr. Hitesh Garg is devoted to offering complete and patient-focused medical care, emphasizing preventive healthcare, timely diagnosis, and advanced treatment methods to ensure lasting wellness. Dr. Davis is committed to providing holistic and high-quality medical services, focusing on prevention, early detection, and effective therapeutic strategies for optimal patient outcomes.',
         fees: 400,
        address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -236,7 +236,7 @@ export const doctors = [
         about: 'Dr. Inderjit Singh Parmar is dedicated to delivering holistic and patient-centered healthcare, with a strong emphasis on preventive medicine, early diagnosis, and advanced treatment approaches to promote long-term well-being.Dr. Inderjit Singh Parmar is devoted to providing comprehensive medical care, focusing on prevention, timely detection, and effective therapeutic solutions for improved patient outcomes.',
         fees: 1200,
         address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -250,7 +250,7 @@ export const doctors = [
         about: 'Dr. Patrick Harris is dedicated to delivering patient-focused and well-rounded healthcare, highlighting the importance of preventive medicine, early detection, and modern treatment approaches that foster lasting health.Dr. Patrick Harris is passionate about providing integrated medical care, prioritizing prevention, accurate diagnosis, and innovative therapeutic solutions to enhance patient outcomes.',
         fees: 700,
         address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -264,7 +264,7 @@ export const doctors = [
         about: 'Dr. Ravi Bhatia has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.Dr. Ravi Bhatia has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 300,
         address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -278,7 +278,7 @@ export const doctors = [
         about: 'Dr. Col Rajagopal A is dedicated to delivering holistic and patient-centered healthcare, emphasizing preventive medicine, early diagnosis, and effective treatment approaches that promote long-term well-being. With a steadfast commitment to excellence, Dr. Col Rajagopal A focuses on combining medical expertise with compassionate care to achieve the best possible outcomes for his patients.',
         fees: 60,
        address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },
@@ -292,7 +292,7 @@ export const doctors = [
         about: 'Dr. Shakti Bhan Khanna has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.Dr. Shakti Bhan Khanna has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 3000,
         address: {
-            line1: 'HealWise',
+            line1: 'MediNexus',
             line2: 'Noida'
         }
     },

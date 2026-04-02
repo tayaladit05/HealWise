@@ -327,14 +327,26 @@ const cancelAppointment = async (req, res) => {
 };
 
 // ---------- Razorpay setup ----------
-const razorpayInstance = new razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID,
-  key_secret: process.env.RAZORPAY_KEY_SECRET,
-});
+const hasRazorpayKeys =
+  Boolean(process.env.RAZORPAY_KEY_ID) && Boolean(process.env.RAZORPAY_KEY_SECRET);
+
+const razorpayInstance = hasRazorpayKeys
+  ? new razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_KEY_SECRET,
+    })
+  : null;
 
 // API TO MAKE PAYMENT USING RAZORPAY
 const paymentRazorpay = async (req, res) => {
   try {
+    if (!razorpayInstance) {
+      return res.json({
+        success: false,
+        message: "Razorpay is not configured. Set RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET.",
+      });
+    }
+
     const { appointmentId } = req.body;
     const appointmentData = await appointmentModel.findById(appointmentId);
     if (!appointmentData || appointmentData.cancelled) {
@@ -361,6 +373,13 @@ const paymentRazorpay = async (req, res) => {
 // API TO VERIFY PAYMENT
 const verifyRazorpay = async (req, res) => {
   try {
+    if (!razorpayInstance) {
+      return res.json({
+        success: false,
+        message: "Razorpay is not configured. Set RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET.",
+      });
+    }
+
     const { razorpay_order_id } = req.body;
     const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id);
 

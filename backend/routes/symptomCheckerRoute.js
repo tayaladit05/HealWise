@@ -3,13 +3,18 @@ import OpenAI from "openai";
 
 const router = express.Router();
 
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const openai = process.env.OPENAI_API_KEY
+  ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+  : null;
 
 router.post("/symptom-checker", async (req, res) => {
   const { symptoms } = req.body;
+
+  if (!openai) {
+    return res
+      .status(503)
+      .json({ message: "Symptom checker is not configured. Set OPENAI_API_KEY." });
+  }
 
   // Validate input
   if (!symptoms || !symptoms.trim()) {

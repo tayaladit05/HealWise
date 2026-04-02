@@ -7,7 +7,7 @@ const Banner = () => {
 
 
   return (
-    <div className='flex flex-col md:flex-row items-center bg-[#5f6FFF] rounded-2xl px-6 sm:px-10 md:px-12 lg:px-14 my-20 md:mx-10 overflow-hidden shadow-md shadow-blue-500/20'>
+    <div className='flex flex-col md:flex-row items-center bg-[#0F766E] rounded-2xl px-6 sm:px-10 md:px-12 lg:px-14 my-20 md:mx-10 overflow-hidden shadow-md shadow-blue-500/20'>
      
      {/*Left side*/}
      <div className='flex-1 w-full text-center md:text-left py-10 md:py-14 lg:py-20 lg:pl-6 space-y-6'>

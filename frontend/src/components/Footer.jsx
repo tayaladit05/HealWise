@@ -48,7 +48,7 @@ const Footer = () => {
         
         <div className="h-full flex flex-col space-y-3">
           <h3 className="text-lg md:text-xl font-semibold text-gray-900">
-            Why HealWise?
+            Why MediNexus?
           </h3>
 
           <ul className="list-disc marker:text-indigo-500 pl-5 space-y-2 text-gray-600">
@@ -166,7 +166,7 @@ const Footer = () => {
 
       <hr />
       <p className="py-5 text-sm text-center">
-        Copyright © 2025 HealWise – All Rights Reserved.
+        Copyright © 2025 MediNexus – All Rights Reserved.
       </p>
     </div>
   );

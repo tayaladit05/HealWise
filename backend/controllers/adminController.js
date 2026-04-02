@@ -267,8 +267,8 @@ const approveApplication = async (req, res) => {
     const specialization = appDoc.vacancy?.specialization || 'the position';
     const email = appDoc.email;
     const phone = appDoc.phone;
-  const plainMessage = `Congratulations ${applicantName} you have been selected to ${specialization} in HealWise Noida. Our team will contact you with next steps`;
-  const emailSubject = `Congratulations ${applicantName} you have been selected to ${specialization} in HealWise Noida. Our team will contact you with next steps`;
+  const plainMessage = `Congratulations ${applicantName} you have been selected to ${specialization} in MediNexus Noida. Our team will contact you with next steps`;
+  const emailSubject = `Congratulations ${applicantName} you have been selected to ${specialization} in MediNexus Noida. Our team will contact you with next steps`;
 
     const notifications = { emailSent: false, smsSent: false };
     // Send Email (best-effort) if config present

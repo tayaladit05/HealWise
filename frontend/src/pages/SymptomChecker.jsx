@@ -45,7 +45,7 @@ const SymptomChecker = () => {
         />
         <button
           type="submit"
-          className="bg-[#5f6FFF] text-white py-2 px-4 rounded hover:bg-[#4a54e1] transition-all"
+          className="bg-[#0F766E] text-white py-2 px-4 rounded hover:bg-[#0B5E58] transition-all"
           disabled={loading}
         >
           {loading ? 'Checking...' : 'Find Doctor Type'}

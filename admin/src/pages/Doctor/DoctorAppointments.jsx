@@ -39,7 +39,7 @@ const DoctorAppointments = () => {
               <p>{item?.userData?.name || ''}</p>
             </div>
             <div>
-              <p className='text-xs inline border border-[#5f6FFF] px-2 rounded-full'>
+              <p className='text-xs inline border border-[#0F766E] px-2 rounded-full'>
                 {item?.payment ? 'ONLINE' : 'CASH'}
               </p>
             </div>

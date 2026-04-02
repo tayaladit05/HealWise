@@ -13,7 +13,7 @@ const CreateVacancy = () => {
   const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState({
     specialization: "",
-    location: "HealWise Noida",
+    location: "MediNexus Noida",
     experience: "",
     vacancies: "",
     description: "",
@@ -22,7 +22,7 @@ const CreateVacancy = () => {
   const resetForm = () => {
     setFormData({
       specialization: "",
-      location: "HealWise Noida",
+      location: "MediNexus Noida",
       experience: "",
       vacancies: "",
       description: "",
@@ -120,7 +120,7 @@ const CreateVacancy = () => {
     setEditingId(req.id);
     setFormData({
       specialization: req.specialization || "",
-      location: req.location || "HealWise Noida",
+      location: req.location || "MediNexus Noida",
       experience: req.experience || "",
       vacancies: req.vacancies === 0 || req.vacancies ? String(req.vacancies) : "",
       description: req.description || "",

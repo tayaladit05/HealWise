@@ -77,9 +77,9 @@ const Appointment = () => {
         const slotDate = day + "_" + month + "_" + year
         const slotTime = formattedTime
 
+        const bookedSlots = docInfo?.slots_booked || {};
         const isSlotAvailable =
-          docInfo.slots_booked[slotDate] &&
-          docInfo.slots_booked[slotDate].includes(slotTime)
+          bookedSlots[slotDate] && bookedSlots[slotDate].includes(slotTime)
             ? false
             : true;
         if (isSlotAvailable)
@@ -112,6 +112,17 @@ const Appointment = () => {
       return;
     }
 
+    if (!docSlots[slotIndex] || docSlots[slotIndex].length === 0) {
+      toast.warn("No slots available for selected day");
+      return;
+    }
+
+    // Demo doctors from local assets cannot be booked in backend.
+    if (!/^[a-f\d]{24}$/i.test(docId)) {
+      toast.error("This is demo doctor data. Please add real doctors from admin to enable booking.");
+      return;
+    }
+
     try {
       const date = docSlots[slotIndex][0].dateTime;
       let day = date.getDate();
@@ -133,7 +144,7 @@ const Appointment = () => {
       if (data.success) {
         toast.success(data.message);
         getDoctorsData();
-        navigate("/my-appointment");
+        navigate("/my-appointments");
       } else {
         toast.error(data.message);
       }
@@ -223,8 +234,7 @@ const Appointment = () => {
           </div>
 
           <div className="flex items-center gap-3 w-full overflow-x-scroll mt-4">
-            {docSlots.length &&
-              docSlots[slotIndex].map((item, index) => (
+            {docSlots.length > 0 && (docSlots[slotIndex] || []).map((item, index) => (
                 <p
                   onClick={() => setSlotTime(item.time)}
                   className={`text-sm font-light flex-shrink-0 px-5 py-2 rounded-full cursor-pointer ${
@@ -238,6 +248,9 @@ const Appointment = () => {
                 </p>
               ))}
           </div>
+          {docSlots.length > 0 && (docSlots[slotIndex] || []).length === 0 && (
+            <p className="text-sm text-gray-500 mt-2">No slots available on this day.</p>
+          )}
           <button
             onClick={bookAppointment}
             className="text-white bg-[#0F766E] px-14 py-3  my-6 rounded-full text-sm font-light "

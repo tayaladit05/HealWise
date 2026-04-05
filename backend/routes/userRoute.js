@@ -1,7 +1,7 @@
 import express from 'express'
-import { registerUser, loginUser, getProfile, updateProfile, bookAppointment, listAppointment, cancelAppointment, paymentRazorpay, verifyRazorpay, applyToVacancy, myApplications, streamMyApplicationResume } from '../controllers/userController.js'
+import { registerUser, loginUser, getProfile, updateProfile, bookAppointment, listAppointment, cancelAppointment, paymentRazorpay, verifyRazorpay } from '../controllers/userController.js'
 import authUser from '../middlewares/authUser.js'
-import { uploadImage, uploadJobApplication } from '../middlewares/multer.js'
+import { uploadImage } from '../middlewares/multer.js'
 const userRouter = express.Router()
 
 // User authentication routes
@@ -20,15 +20,5 @@ userRouter.post('/cancel-appointment', authUser, cancelAppointment)
 // Payment routes
 userRouter.post('/payment-razorpay', authUser, paymentRazorpay)
 userRouter.post('/verify-razorpay', authUser, verifyRazorpay)
-
-// Job application routes - using Cloudinary storage
-userRouter.post('/vacancies/:id/apply', 
-  authUser,
-  uploadJobApplication,
-  applyToVacancy
-)
-
-userRouter.get('/my-applications', authUser, myApplications)
-userRouter.get('/applications/:id/resume', authUser, streamMyApplicationResume)
 
 export default userRouter

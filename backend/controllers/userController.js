@@ -1,15 +1,11 @@
 // controllers/userController.js
-import express from "express";
 import validator from "validator";
 import bcrypt from "bcrypt";
 import userModel from "../models/userModel.js";
 import jwt from "jsonwebtoken";
-import { v2 as cloudinary } from "cloudinary";
 import doctorModel from "../models/doctorModel.js";
 import appointmentModel from "../models/appointmentModel.js";
 import razorpay from "razorpay";
-import jobApplicationModel from "../models/jobApplicationModel.js";
-import vacancyModel from "../models/vacancyModel.js";
 import { uploadToCloudinary } from "../middlewares/multer.js"; // robust helper
 
 // ---------- API TO REGISTER USER ----------
@@ -397,191 +393,6 @@ const verifyRazorpay = async (req, res) => {
   }
 };
 
-// ---------- API TO APPLY FOR VACANCY ----------
-const applyToVacancy = async (req, res) => {
-  try {
-    const { id } = req.params; // vacancy id
-    const userId = req?.user?.userId || req.body.userId;
-    const { name, email, age, phone, additionalInfo } = req.body;
-
-    if (!userId) {
-      return res.status(401).json({ success: false, message: "Unauthorized" });
-    }
-
-    // Validate vacancy
-    const vacancy = await vacancyModel.findById(id);
-    if (!vacancy || !vacancy.isActive) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Vacancy not found or inactive" });
-    }
-
-    if (!name || !email || !age || !phone) {
-      return res
-        .status(400)
-        .json({ success: false, message: "Missing required fields" });
-    }
-
-    // Prevent duplicate application
-    const existing = await jobApplicationModel.findOne({
-      vacancy: vacancy._id,
-      user: userId,
-    });
-    if (existing) {
-      return res
-        .status(409)
-        .json({
-          success: false,
-          message: "You have already applied to this vacancy.",
-        });
-    }
-
-    const files = req.files || {};
-    const profileImageFile = files.profileImage?.[0];
-    const resumeFile = files.resume?.[0];
-
-    if (!profileImageFile || !resumeFile) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "Profile image and resume are required",
-        });
-    }
-
-    // Upload files to Cloudinary (profile image as image, resume as raw)
-    let profileImageUrl = "";
-    let profileImagePublicId = "";
-    let resumeUrl = "";
-    let resumePublicId = "";
-
-    try {
-      // Upload profile image (image)
-      const profileResult = await uploadToCloudinary(
-        profileImageFile,
-        "healwise/profile-images",
-        "image"
-      );
-      profileImageUrl = profileResult.url;
-      profileImagePublicId = profileResult.publicId;
-
-      // Upload resume (IMPORTANT: resourceType 'raw')
-      const resumeResult = await uploadToCloudinary(
-        resumeFile,
-        "healwise/resumes",
-        "raw"
-      );
-      resumeUrl = resumeResult.url;
-      resumePublicId = resumeResult.publicId;
-
-      console.log("profileResult.raw:", profileResult.raw || profileResult);
-      console.log("resumeResult.raw:", resumeResult.raw || resumeResult);
-    } catch (error) {
-      console.error("Cloudinary upload error:", error);
-      return res.status(500).json({
-        success: false,
-        message: "Failed to upload files to Cloudinary",
-      });
-    }
-
-    // Create job application with Cloudinary URLs
-    let appDoc;
-    try {
-      appDoc = await jobApplicationModel.create({
-        vacancy: vacancy._id,
-        user: userId,
-        name,
-        email,
-        age: Number(age),
-        phone,
-        additionalInfo: additionalInfo || "",
-        profileImageUrl,
-        profileImagePublicId,
-        resumeUrl,
-        resumePublicId,
-      });
-    } catch (e) {
-      // Handle race condition hitting unique index
-      if (e && e.code === 11000) {
-        return res
-          .status(409)
-          .json({
-            success: false,
-            message: "You have already applied to this vacancy.",
-          });
-      }
-      throw e;
-    }
-
-    return res.status(201).json({ success: true, data: appDoc });
-  } catch (err) {
-    console.error("applyToVacancy error:", err);
-    return res.status(500).json({ success: false, message: err.message });
-  }
-};
-
-// ---------- API TO GET USER'S JOB APPLICATIONS ----------
-const myApplications = async (req, res) => {
-  try {
-    const userId = req?.user?.userId || req.body.userId;
-    if (!userId) {
-      return res.status(401).json({ success: false, message: "Unauthorized" });
-    }
-
-    const apps = await jobApplicationModel
-      .find({ user: userId })
-      .populate("vacancy", "specialization location experience vacancies")
-      .sort({ createdAt: -1 });
-
-    res.json({ success: true, data: apps });
-  } catch (err) {
-    console.error("myApplications error:", err);
-    res.status(500).json({ success: false, message: err.message });
-  }
-};
-
-// ---------- API TO STREAM RESUME FROM CLOUDINARY ----------
-const streamMyApplicationResume = async (req, res) => {
-  try {
-    const { id } = req.params; // application id
-    const userId = req?.user?.userId || req.body.userId;
-
-    if (!userId) {
-      return res.status(401).json({ success: false, message: "Unauthorized" });
-    }
-
-    const appDoc = await jobApplicationModel.findById(id);
-    if (!appDoc || (!appDoc.resumeUrl && !appDoc.resumePublicId)) {
-      return res
-        .status(404)
-        .json({ success: false, message: "Resume not found" });
-    }
-
-    if (String(appDoc.user) !== String(userId)) {
-      return res.status(403).json({ success: false, message: "Forbidden" });
-    }
-
-    // Prefer secure stored URL if available
-    if (appDoc.resumeUrl && appDoc.resumeUrl.includes("cloudinary.com")) {
-      return res.redirect(appDoc.resumeUrl);
-    }
-
-    // Otherwise, build Cloudinary delivery URL using public id (ensure you saved it)
-    if (appDoc.resumePublicId) {
-      const builtUrl = cloudinary.url(appDoc.resumePublicId, {
-        resource_type: "raw",
-        secure: true,
-      });
-      return res.redirect(builtUrl);
-    }
-
-    return res.status(400).json({ success: false, message: "Invalid resume URL" });
-  } catch (err) {
-    console.error("streamMyApplicationResume error:", err);
-    res.status(500).json({ success: false, message: err.message });
-  }
-};
-
 // ---------- Exports ----------
 export {
   registerUser,
@@ -593,7 +404,4 @@ export {
   cancelAppointment,
   paymentRazorpay,
   verifyRazorpay,
-  applyToVacancy,
-  myApplications,
-  streamMyApplicationResume,
 };

@@ -13,8 +13,6 @@ import Footer from './components/Footer.jsx'
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import SymptomChecker from './pages/SymptomChecker.jsx'
-import Vacancies from './pages/Vacancies.jsx'
-import MyApplications from './pages/MyApplications.jsx'
 
 
 const App = () => {
@@ -35,8 +33,6 @@ const App = () => {
         <Route path='/my-appointments' element={<MyAppointments />} />
         <Route path='/my-profile' element={<MyProfile />} />
         <Route path='/symptom-checker' element={<SymptomChecker/>}/>
-        <Route path='/vacancies' element={<Vacancies/>}/>
-        <Route path='/my-applications' element={<MyApplications/>}/>
       </Routes>
 
       <Footer/>

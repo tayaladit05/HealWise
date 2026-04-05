@@ -3,9 +3,7 @@ import { useContext } from 'react'
 import { AdminContext } from '../context/AdminContext'
 import home_icon from '../assets/home_icon.svg'
 import appointment_icon from '../assets/appointment_icon.svg'
-import add_icon from '../assets/add_admin.png'
 import add from '../assets/add_icon.svg'
-import approve_icon from '../assets/approve_admin.png'
 import people_icon from '../assets/people_icon.svg'
 import {NavLink} from 'react-router-dom'
 import { DoctorContext } from '../context/DoctorContext'
@@ -35,15 +33,6 @@ const Sidebar = () => {
          <img src={people_icon} alt=''/>
          <p>Doctors List</p>
         </NavLink>
-        <NavLink className={({isActive})=>`flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-72 cursor-pointer ${isActive?'bg-[#0F766E] border-r-4 border-[#0F766E]':''}`} to={'/create-vacancy'}>
-         <img className='w-5 h-5 md:w-6 md:h-6 object-contain shrink-0' src={add_icon} alt='Create vacancy icon'/>
-         <p>Create Vacancy</p>
-        </NavLink>
-        <NavLink className={({isActive})=>`flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-72 cursor-pointer ${isActive?'bg-[#0F766E] border-r-4 border-[#0F766E]':''}`} to={'/approval'}>
-         <img className='w-5 h-5 md:w-6 md:h-6 object-contain shrink-0' src={approve_icon} alt='Approval icon'/>
-         <p>Approval</p>
-        </NavLink>
-
     </ul>
    }
       {

@@ -33,7 +33,6 @@ const Navbar = () => {
         <NavLink to="/about"><li className='py-1'>ABOUT</li><hr className='border-none outline-none h-0.5 bg-[#0F766E] w-3/5 m-auto hidden'/></NavLink>
         <NavLink to="/contact"><li className='py-1'>CONTACT</li><hr className='border-none outline-none h-0.5 bg-[#0F766E] w-3/5 m-auto hidden'/></NavLink>
         <NavLink to="/symptom-checker"><li className='py-1'>SYMPTOM CHECKER</li><hr className='border-none outline-none h-0.5 bg-[#0F766E] w-3/5 m-auto hidden'/></NavLink>
-        <NavLink to="/vacancies"><li className='py-1'>VACANCIES</li><hr className='border-none outline-none h-0.5 bg-[#0F766E] w-3/5 m-auto hidden'/></NavLink>
         <li
           onClick={goToAdmin}
           className="cursor-pointer select-none rounded-full bg-linear-to-r from-[#0F766E] via-indigo-500 to-blue-500 px-4 py-2 text-white shadow-md shadow-blue-500/30 ring-1 ring-white/10 hover:shadow-lg hover:shadow-blue-500/40 hover:brightness-110 transition-all duration-200"
@@ -75,12 +74,6 @@ const Navbar = () => {
                     My Appointments
                   </p>
                   <p
-                    onClick={() => navigate('/my-applications')}
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 cursor-pointer"
-                  >
-                    My Applications
-                  </p>
-                  <p
                     onClick={logout}
                     className="block px-4 py-2 text-red-600 hover:bg-red-50 cursor-pointer"
                   >
@@ -112,7 +105,6 @@ const Navbar = () => {
             <NavLink  onClick={()=>setShowMenu(false)} to='/about'><p className='px-4 py-2 rounded  inline-block'>About</p></NavLink>
             <NavLink  onClick={()=>setShowMenu(false)} to='/contact'><p className='px-4 py-2 rounded  inline-block'>Contact</p></NavLink>
             <NavLink onClick={()=>setShowMenu(false)} to='/symptom-checker'><p className='px-4 py-2 rounded inline-block'>Symptom Checker</p></NavLink>
-            <NavLink onClick={()=>setShowMenu(false)} to='/vacancies'><p className='px-4 py-2 rounded inline-block'>Vacancies</p></NavLink>
             <p
               onClick={()=>{setShowMenu(false); goToAdmin();}}
               className="w-full text-center cursor-pointer select-none rounded-xl bg-linear-to-br from-[#0F766E] to-blue-600 px-5 py-2.5 text-white shadow-lg shadow-blue-500/30 ring-1 ring-white/10 active:scale-95 transition-all duration-150"

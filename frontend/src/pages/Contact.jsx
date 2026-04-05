@@ -1,10 +1,7 @@
 import React from 'react'
 import contact_image from '../assets/contactus_frontend.png'
-import { useNavigate } from 'react-router-dom'
 
 const Contact = () => {
-  const navigate = useNavigate()
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Heading */}
@@ -33,16 +30,6 @@ const Contact = () => {
               Phone: <a href="tel:7599444086" className="text-[#0F766E] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0F766E] rounded-sm">7599444086</a><br />
               Email: <a href="mailto:tayaladit5@gmail.com" className="text-[#0F766E] hover:underline break-all focus:outline-none focus:ring-2 focus:ring-[#0F766E] rounded-sm">tayaladit5@gmail.com</a>
             </p>
-          </div>
-          <div>
-            <h2 className="text-gray-700 font-semibold text-lg mb-1">CAREERS AT MediNexus</h2>
-            <p className="text-gray-600">Learn more about teams and job openings.</p>
-            <button
-              onClick={() => { navigate('/vacancies'); window.scrollTo(0, 0); }}
-              className="mt-4 inline-flex items-center justify-center rounded-lg border border-[#0F766E] px-6 py-3 text-sm font-medium text-[#0F766E] hover:bg-[#0F766E] hover:text-white transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0F766E]"
-            >
-              Explore Jobs
-            </button>
           </div>
           <div className="grid sm:grid-cols-2 gap-6 pt-4">
             <div className="rounded-lg border p-5 bg-white shadow-sm hover:shadow-md transition">

@@ -1,12 +1,11 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { AdminContext } from '../context/AdminContext'
 import { DoctorContext } from '../context/DoctorContext'
-import { useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const navigate = useNavigate()
+
 
 const Login = () => {
 
@@ -16,6 +15,7 @@ const Login = () => {
 
   const { setAToken, backendUrl,aToken } = useContext(AdminContext)
   const { setDToken,dToken } = useContext(DoctorContext)
+  const navigate = useNavigate()
   useEffect(() => {
   if (aToken) navigate('/admin-dashboard', { replace: true })
   else if (dToken) navigate('/doctor-dashboard', { replace: true })

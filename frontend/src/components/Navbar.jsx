@@ -16,7 +16,7 @@ const Navbar = () => {
   const { token, setToken,userData } = useContext(AppContext);
   
   const goToAdmin=()=>{
-    window.open(ADMIN_PANEL_URL,'_blank');
+    window.open(ADMIN_PANEL_URL,'https://medi-nexus-bzrz.vercel.app/');
   };
   
   const logout=()=>{

@@ -6,7 +6,6 @@ import jwt from "jsonwebtoken";
 import doctorModel from "../models/doctorModel.js";
 import appointmentModel from "../models/appointmentModel.js";
 import razorpay from "razorpay";
-import { uploadToCloudinary } from "../middlewares/multer.js"; // robust helper
 
 // ---------- API TO REGISTER USER ----------
 const registerUser = async (req, res) => {
@@ -51,20 +50,10 @@ const registerUser = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Handle image upload via uploadToCloudinary (supports path or buffer)
+    // With multer + CloudinaryStorage, file is already uploaded and path is Cloudinary URL.
     let imageURL = "";
     if (imageFile) {
-      try {
-        const imageUpload = await uploadToCloudinary(
-          imageFile,
-          "healwise/profile-images",
-          "image"
-        );
-        imageURL = imageUpload.url || "";
-      } catch (imgErr) {
-        console.log("Image upload error:", imgErr.message);
-        // continue without failing registration - optional behavior
-      }
+      imageURL = imageFile.path || "";
     }
 
     // Parse address
@@ -183,18 +172,8 @@ const updateProfile = async (req, res) => {
     });
 
     if (imageFile) {
-      try {
-        // upload image via helper
-        const imageUpload = await uploadToCloudinary(
-          imageFile,
-          "healwise/profile-images",
-          "image"
-        );
-        const imageURL = imageUpload.url;
-        await userModel.findByIdAndUpdate(userId, { image: imageURL });
-      } catch (imgErr) {
-        console.log("updateProfile image upload error:", imgErr.message);
-      }
+      const imageURL = imageFile.path;
+      await userModel.findByIdAndUpdate(userId, { image: imageURL });
     }
 
     res.json({ success: true, message: "Profile Updated" });

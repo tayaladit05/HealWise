@@ -56,6 +56,62 @@ const AdminContextProvider=(props)=>{
         
     }
 
+    const updateDoctor=async ({ doctorId, name, speciality, experience, fees, about, address1, address2, available, image }) => {
+        try {
+            const formData = new FormData()
+            formData.append('doctorId', doctorId)
+            formData.append('name', name)
+            formData.append('speciality', speciality)
+            formData.append('experience', experience)
+            formData.append('fees', Number(fees))
+            formData.append('about', about)
+            formData.append('address', JSON.stringify({ line1: address1, line2: address2 }))
+            formData.append('available', available)
+
+            if (image) formData.append('image', image)
+
+            const { data } = await axios.post(backendUrl + '/api/admin/update-doctor', formData, {
+                headers: { atoken: aToken }
+            })
+
+            if (data.success) {
+                toast.success(data.message)
+                getAllDoctors()
+                return { success: true }
+            }
+
+            toast.error(data.message)
+            return { success: false }
+        } catch (error) {
+            console.error('updateDoctor error:', error)
+            toast.error(error.response?.data?.message || error.message)
+            return { success: false }
+        }
+    }
+
+    const deleteDoctor=async (doctorId) => {
+        try {
+            const { data } = await axios.post(
+                backendUrl + '/api/admin/delete-doctor',
+                { doctorId },
+                { headers: { atoken: aToken } }
+            )
+
+            if (data.success) {
+                toast.success(data.message)
+                getAllDoctors()
+                return { success: true }
+            }
+
+            toast.error(data.message)
+            return { success: false }
+        } catch (error) {
+            console.error('deleteDoctor error:', error)
+            toast.error(error.response?.data?.message || error.message)
+            return { success: false }
+        }
+    }
+
     const getAllAppointments=async () => {
         try {
             const{data}=await axios.get(backendUrl+'/api/admin/appointments',{headers:{atoken: aToken}})
@@ -113,7 +169,7 @@ const AdminContextProvider=(props)=>{
     const value={
        aToken,setAToken,
        backendUrl,doctors,getAllDoctors,changeAvailablity,appointments,setAppointments,getAllAppointments,
-       cancelAppointment,dashData,getDashData
+         cancelAppointment,dashData,getDashData,updateDoctor,deleteDoctor
   }
     return (
         <AdminContext.Provider value={value}>

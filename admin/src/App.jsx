@@ -28,7 +28,10 @@ const App = () => {
         <Sidebar/>
         <Routes>
           {/*Admin Route*/}
-          <Route path='/' element={<></>} />
+          <Route path='/' element={ aToken
+      ? <Navigate to='/admin-dashboard' replace />
+      : <Navigate to='/doctor-dashboard' replace />
+  }/>
           <Route path='/admin-dashboard' element={<Dashboard/>} />
           <Route path='/all-appointments' element={<AllAppointments/>} />
           <Route path='/add-doctor' element={<AddDoctor/>} />

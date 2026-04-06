@@ -3,6 +3,10 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import { AdminContext } from '../context/AdminContext'
 import { DoctorContext } from '../context/DoctorContext'
+import { useState, useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+const navigate = useNavigate()
 
 const Login = () => {
 
@@ -10,33 +14,41 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const { setAToken, backendUrl } = useContext(AdminContext)
-  const { setDToken } = useContext(DoctorContext)
+  const { setAToken, backendUrl,aToken } = useContext(AdminContext)
+  const { setDToken,dToken } = useContext(DoctorContext)
+  useEffect(() => {
+  if (aToken) navigate('/admin-dashboard', { replace: true })
+  else if (dToken) navigate('/doctor-dashboard', { replace: true })
+}, [aToken, dToken, navigate])
 
   const onSubmitHandler = async (event) => {
     event.preventDefault()
+
     try {
       if (state === 'Admin') {
         const { data } = await axios.post(`${backendUrl}/api/admin/login`, { email, password })
+
         if (data.success) {
           localStorage.setItem('aToken', data.token)
           setAToken(data.token)
+          navigate('/admin-dashboard', { replace: true })
         } else {
           toast.error(data.message)
         }
       } else {
         const { data } = await axios.post(`${backendUrl}/api/doctor/login`, { email, password })
+
         if (data.success) {
           localStorage.setItem('dToken', data.token)
           setDToken(data.token)
-          console.log(data.token)
+          navigate('/doctor-dashboard', { replace: true })
         } else {
           toast.error(data.message)
         }
       }
     } catch (error) {
-      console.error('Full error:', error);
-      toast.error(error.response?.data?.message || error.message || 'Something went wrong');
+      console.error('Full error:', error)
+      toast.error(error.response?.data?.message || error.message || 'Something went wrong')
     }
   }
 

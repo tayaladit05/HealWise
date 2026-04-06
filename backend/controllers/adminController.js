@@ -1,6 +1,5 @@
 import validator from "validator";
 import bcrypt from "bcrypt";
-import { v2 as cloudinary } from "cloudinary";
 import doctorModel from "../models/doctorModel.js";
 import jwt from "jsonwebtoken";
 import appointmentModel from "../models/appointmentModel.js";
@@ -52,11 +51,8 @@ const addDoctor = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    //uploading image to cloudinary
-    const imageUpload = await cloudinary.uploader.upload(imageFile.path, {
-      resource_type: "image",
-    });
-    const imageUrl = imageUpload.secure_url;
+    // With multer + CloudinaryStorage, file is already uploaded and path is Cloudinary URL.
+    const imageUrl = imageFile.path;
 
     const doctorData = {
       name,
@@ -177,5 +173,69 @@ const adminDashboard=async (req,res) => {
   
 }
 
-export { addDoctor, loginAdmin,allDoctors,appointmentsAdmin,appointmentCancel,adminDashboard };
+// API TO UPDATE DOCTOR FROM ADMIN PANEL
+const updateDoctor = async (req, res) => {
+  try {
+    const { doctorId, name, speciality, experience, about, fees, address, available } = req.body;
+    const imageFile = req.file;
+
+    if (!doctorId || !name || !speciality || !experience || !about || !fees || !address) {
+      return res.status(400).json({ success: false, message: "Missing fields" });
+    }
+
+    const payload = {
+      name,
+      speciality,
+      experience,
+      about,
+      fees: Number(fees),
+      address: JSON.parse(address),
+    };
+
+    if (typeof available !== "undefined") {
+      payload.available = available === true || available === "true";
+    }
+
+    if (imageFile) {
+      // With CloudinaryStorage, multer gives Cloudinary URL in file.path
+      payload.image = imageFile.path;
+    }
+
+    const updatedDoctor = await doctorModel
+      .findByIdAndUpdate(doctorId, payload, { new: true, runValidators: true })
+      .select("-password");
+
+    if (!updatedDoctor) {
+      return res.status(404).json({ success: false, message: "Doctor not found" });
+    }
+
+    return res.json({ success: true, message: "Doctor updated", doctor: updatedDoctor });
+  } catch (error) {
+    console.log("updateDoctor error:", error);
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+// API TO DELETE DOCTOR FROM ADMIN PANEL
+const deleteDoctor = async (req, res) => {
+  try {
+    const { doctorId } = req.body;
+
+    if (!doctorId) {
+      return res.status(400).json({ success: false, message: "Doctor id is required" });
+    }
+
+    const deletedDoctor = await doctorModel.findByIdAndDelete(doctorId);
+    if (!deletedDoctor) {
+      return res.status(404).json({ success: false, message: "Doctor not found" });
+    }
+
+    return res.json({ success: true, message: "Doctor deleted" });
+  } catch (error) {
+    console.log("deleteDoctor error:", error);
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export { addDoctor, loginAdmin,allDoctors,appointmentsAdmin,appointmentCancel,adminDashboard,updateDoctor,deleteDoctor };
 

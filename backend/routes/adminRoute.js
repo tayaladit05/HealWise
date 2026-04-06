@@ -1,11 +1,13 @@
 import express from "express";
-import { addDoctor,adminDashboard,allDoctors,appointmentCancel,appointmentsAdmin,loginAdmin } from "../controllers/adminController.js";
+import { addDoctor,adminDashboard,allDoctors,appointmentCancel,appointmentsAdmin,loginAdmin,updateDoctor,deleteDoctor } from "../controllers/adminController.js";
 import {changeAvailablity} from "../controllers/doctorController.js"
 import upload from '../middlewares/multer.js';
 import authAdmin from "../middlewares/authAdmin.js";
 
 const adminRouter=express.Router()
 adminRouter.post('/add-doctor',authAdmin,upload.single('image'),addDoctor)
+adminRouter.post('/update-doctor',authAdmin,upload.single('image'),updateDoctor)
+adminRouter.post('/delete-doctor',authAdmin,deleteDoctor)
 
 adminRouter.post('/login',loginAdmin)
 adminRouter.post('/all-doctors',authAdmin,allDoctors)

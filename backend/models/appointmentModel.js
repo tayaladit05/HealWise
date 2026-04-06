@@ -23,7 +23,6 @@ appointmentSchema.pre('save', function(next) {
   next();
 });
 
-const appointmentModel =
-  mongoose.models.appointment || mongoose.model("appointment", appointmentSchema);
+const appointmentModel = mongoose.model("appointment", appointmentSchema);
 
 export default appointmentModel;

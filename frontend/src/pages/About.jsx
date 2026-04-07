@@ -47,9 +47,9 @@ const About = () => {
           { title: 'PERSONALIZATION', body: 'Get smart health tips and timely reminders that help you stay healthy and informed.' }
         ].map(card => (
           <div key={card.title} className="relative group border rounded-xl px-8 md:px-10 py-8 flex flex-col gap-4 text-base bg-white shadow-sm hover:shadow-md transition">
-            <h3 className="text-lg font-semibold tracking-wide text-gray-800 group-hover:text-[#0F766E]">{card.title}:</h3>
+            <h3 className="text-lg font-semibold tracking-wide text-gray-800 group-hover:text-[#334155]">{card.title}:</h3>
             <p className="text-gray-600 group-hover:text-gray-700 text-sm leading-relaxed">{card.body}</p>
-            <div className="absolute inset-0 rounded-xl bg-linear-to-br from-[#0F766E]/0 via-[#0F766E]/0 to-[#0F766E]/0 group-hover:from-[#0F766E]/5 group-hover:to-[#0F766E]/10 transition" />
+            <div className="absolute inset-0 rounded-xl bg-linear-to-br from-[#334155]/0 via-[#334155]/0 to-[#334155]/0 group-hover:from-[#334155]/5 group-hover:to-[#334155]/10 transition" />
           </div>
         ))}
       </div>

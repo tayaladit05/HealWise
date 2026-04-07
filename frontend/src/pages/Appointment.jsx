@@ -172,7 +172,7 @@ const Appointment = () => {
         <div className="flex flex-col sm:flex-row gap-4">
           <div>
             <img
-              className="bg-[#0F766E] w-full sm:max-w-72 rounded-lg"
+              className="bg-[#334155] w-full sm:max-w-72 rounded-lg"
               src={docInfo.image}
               alt=""
             />
@@ -222,7 +222,7 @@ const Appointment = () => {
                   onClick={() => setSlotIndex(index)}
                   className={`text-center py-6 min-w-16 rounded-full cursor-pointer ${
                     slotIndex === index
-                      ? "bg-[#0F766E] text-white"
+                      ? "bg-[#334155] text-white"
                       : "border border-gray-200"
                   }`}
                   key={index}
@@ -239,7 +239,7 @@ const Appointment = () => {
                   onClick={() => setSlotTime(item.time)}
                   className={`text-sm font-light flex-shrink-0 px-5 py-2 rounded-full cursor-pointer ${
                     item.time == slotTime
-                      ? "bg-[#0F766E] text-white"
+                      ? "bg-[#334155] text-white"
                       : "text-gray-400 border border-gray-300"
                   }`}
                   key={index}
@@ -253,7 +253,7 @@ const Appointment = () => {
           )}
           <button
             onClick={bookAppointment}
-            className="text-white bg-[#0F766E] px-14 py-3  my-6 rounded-full text-sm font-light "
+            className="text-white bg-[#334155] px-14 py-3  my-6 rounded-full text-sm font-light "
           >
             Book an Appointment
           </button>

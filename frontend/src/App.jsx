@@ -17,7 +17,7 @@ import SymptomChecker from './pages/SymptomChecker.jsx'
 
 const App = () => {
   return (
-    <div className='max-w-full min-h-screen sm:mx-[10%] px-3 sm:px-0'>
+    <div className='mx-auto min-h-screen w-full max-w-[1240px] px-4 sm:px-6 lg:px-8'>
       <ToastContainer/>
       <Navbar />
       

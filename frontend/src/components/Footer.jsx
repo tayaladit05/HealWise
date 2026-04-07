@@ -51,7 +51,7 @@ const Footer = () => {
             Why MediNexus?
           </h3>
 
-          <ul className="list-disc marker:text-indigo-500 pl-5 space-y-2 text-gray-600">
+          <ul className="list-disc marker:text-slate-500 pl-5 space-y-2 text-gray-600">
             <li>Verified Doctors</li>
             <li>AI-powered recommendations</li>
             <li>Zero-cost recommendations</li>
@@ -64,7 +64,7 @@ const Footer = () => {
         <div className="h-full flex flex-col space-y-3">
           <h3 className="text-lg md:text-xl font-semibold text-gray-900">Company</h3>
 
-          <ul className="list-disc marker:text-indigo-500 pl-5 space-y-2 text-gray-600">
+          <ul className="list-disc marker:text-slate-500 pl-5 space-y-2 text-gray-600">
             <li>Home</li>
             <li>About us</li>
             <li>Security & Data Protection</li>
@@ -90,7 +90,7 @@ const Footer = () => {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, name: e.target.value }))
                 }
-                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-1 focus:ring-indigo-500"
+                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-1 focus:ring-slate-500"
               />
             </div>
 
@@ -105,7 +105,7 @@ const Footer = () => {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, email: e.target.value }))
                 }
-                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-1 focus:ring-indigo-500"
+                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-1 focus:ring-slate-500"
               />
             </div>
 
@@ -119,7 +119,7 @@ const Footer = () => {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, phone: e.target.value }))
                 }
-                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-1 focus:ring-indigo-500"
+                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-1 focus:ring-slate-500"
               />
             </div>
 
@@ -134,7 +134,7 @@ const Footer = () => {
                 onChange={(e) =>
                   setForm((f) => ({ ...f, message: e.target.value }))
                 }
-                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-1 focus:ring-indigo-500 resize-none"
+                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:ring-1 focus:ring-slate-500 resize-none"
                 placeholder="How can we help?"
               />
             </div>
@@ -143,7 +143,7 @@ const Footer = () => {
               <button
                 type="submit"
                 disabled={status.loading}
-                className="rounded-full bg-indigo-600 px-4 py-2 text-white hover:bg-indigo-700 transition disabled:opacity-60 disabled:cursor-not-allowed"
+                className="rounded-full bg-slate-700 px-4 py-2 text-white hover:bg-slate-800 transition disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {status.loading ? "Sending…" : "Send message"}
               </button>

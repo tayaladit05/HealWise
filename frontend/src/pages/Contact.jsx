@@ -7,7 +7,7 @@ const Contact = () => {
       {/* Heading */}
       <div className="pt-12 text-center">
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-800">
-          CONTACT <span className="text-[#0F766E]">US</span>
+          CONTACT <span className="text-[#334155]">US</span>
         </h1>
         <p className="mt-3 max-w-xl mx-auto text-gray-500 text-sm sm:text-base">
           We’d love to hear from you. Reach out for support, partnerships or career opportunities.
@@ -27,8 +27,8 @@ const Contact = () => {
           <div>
             <h2 className="text-gray-700 font-semibold text-lg mb-1">CONTACT</h2>
             <p className="text-gray-600 leading-relaxed">
-              Phone: <a href="tel:7599444086" className="text-[#0F766E] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0F766E] rounded-sm">7599444086</a><br />
-              Email: <a href="mailto:tayaladit5@gmail.com" className="text-[#0F766E] hover:underline break-all focus:outline-none focus:ring-2 focus:ring-[#0F766E] rounded-sm">tayaladit5@gmail.com</a>
+              Phone: <a href="tel:7599444086" className="text-[#334155] hover:underline focus:outline-none focus:ring-2 focus:ring-[#334155] rounded-sm">7599444086</a><br />
+              Email: <a href="mailto:tayaladit5@gmail.com" className="text-[#334155] hover:underline break-all focus:outline-none focus:ring-2 focus:ring-[#334155] rounded-sm">tayaladit5@gmail.com</a>
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-6 pt-4">
@@ -45,7 +45,7 @@ const Contact = () => {
 
         
         <div className="w-full lg:w-1/2">
-          <div className="relative mx-auto w-full max-w-xl rounded-2xl shadow-md ring-1 ring-gray-200 bg-linear-to-br from-[#eef2ff] via-white to-white p-4">
+          <div className="relative mx-auto w-full max-w-xl rounded-2xl shadow-md ring-1 ring-gray-200 bg-linear-to-br from-slate-100 via-white to-white p-4">
             <div className="relative w-full aspect-16/10 md:aspect-5/3">
               <img
                 src={contact_image}

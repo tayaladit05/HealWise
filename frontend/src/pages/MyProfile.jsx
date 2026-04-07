@@ -51,31 +51,31 @@ const {userData,setUserData,token,backendUrl,loadUserProfileData}=useContext(App
         isEdit
         ? <label htmlFor='image'>
             <div className='inline-block relative cursor-pointer'>
-              <img className='w-32 h-32 rounded-full object-cover border-4 border-[#0F766E] shadow-md opacity-80' src={image ? URL.createObjectURL(image) : (userData.image || profile_pic)} alt="" />
+              <img className='w-32 h-32 rounded-full object-cover border-4 border-[#334155] shadow-md opacity-80' src={image ? URL.createObjectURL(image) : (userData.image || profile_pic)} alt="" />
               <img className='w-10 absolute bottom-2 right-2' src={upload_icon} alt="" />
             </div>
             <input onChange={(e)=>setImage(e.target.files[0])} type="file"  id="image" hidden/>
           </label>
-        : <img className='w-32 h-32 rounded-full object-cover border-4 border-[#0F766E] shadow-md mx-auto' src={userData.image || profile_pic} alt=""/>
+        : <img className='w-32 h-32 rounded-full object-cover border-4 border-[#334155] shadow-md mx-auto' src={userData.image || profile_pic} alt=""/>
       }
      
 
   {
    isEdit
-   ? <input  className='bg-gray-50 text-2xl font-semibold max-w-xs mt-4 px-3 py-2 rounded border border-zinc-300 focus:outline-[#0F766E]' type="text" value={userData.name} onChange={e=>setUserData(prev=>({...prev,name:e.target.value}))}/>
+   ? <input  className='bg-gray-50 text-2xl font-semibold max-w-xs mt-4 px-3 py-2 rounded border border-zinc-300 focus:outline-[#334155]' type="text" value={userData.name} onChange={e=>setUserData(prev=>({...prev,name:e.target.value}))}/>
    :<p className='font-semibold text-2xl text-neutral-800 mt-4 text-center'>{userData.name}</p>
   }
   <hr className='bg-zinc-200 h-[2px] border-none my-2'/>
   <div>
-   <p className='text-[#0F766E] font-semibold text-lg mb-2'>Contact Information</p>
+   <p className='text-[#334155] font-semibold text-lg mb-2'>Contact Information</p>
    <div className='grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mt-2 text-neutral-700'>
         <div className='font-medium'>EMAIL id:</div>
-        <div className='text-blue-500 break-all'>{userData.email}</div>
+        <div className='text-slate-500 break-all'>{userData.email}</div>
         <div className='font-medium'>Phone:</div>
         {
           isEdit
           ? <input className="bg-gray-100 rounded px-2 py-1 w-full max-w-xs" type="text" value={userData.phone} onChange={e=>setUserData(prev=>({...prev,phone:e.target.value}))}/>
-          :<div className='text-blue-400'>{userData.phone}</div>
+          :<div className='text-slate-500'>{userData.phone}</div>
         }
         <div className='font-medium'>Address:</div>
         {
@@ -124,7 +124,7 @@ const {userData,setUserData,token,backendUrl,loadUserProfileData}=useContext(App
       </div>
      </div>
   <div className='mt-6'>
-   <p className='text-[#0F766E] font-semibold text-lg mb-2'>Basic Information</p>
+   <p className='text-[#334155] font-semibold text-lg mb-2'>Basic Information</p>
    <div className='grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 mt-2 text-neutral-700'>
         <p className='font-medium'>Gender:</p>
         {
@@ -146,8 +146,8 @@ const {userData,setUserData,token,backendUrl,loadUserProfileData}=useContext(App
      <div className='mt-8 flex justify-center'>
       {
         isEdit
-        ? <button className='border border-[#0F766E] px-8 py-2 rounded-full font-semibold hover:bg-[#0F766E] hover:text-white transition-all shadow' onClick={updateUserProfileData}>Save information</button>
-        :<button className='border border-[#0F766E] px-8 py-2 rounded-full font-semibold hover:bg-[#0F766E] hover:text-white transition-all shadow' onClick={()=>setIsEdit(true)}>Edit</button>
+        ? <button className='border border-[#334155] px-8 py-2 rounded-full font-semibold hover:bg-[#334155] hover:text-white transition-all shadow' onClick={updateUserProfileData}>Save information</button>
+        :<button className='border border-[#334155] px-8 py-2 rounded-full font-semibold hover:bg-[#334155] hover:text-white transition-all shadow' onClick={()=>setIsEdit(true)}>Edit</button>
       }
      </div>
     </div>

@@ -21,7 +21,7 @@ const Doctors = () => {
     <div className="">
       <p className='text-gray-700'>Browse through the doctors specialist.</p>
       <div className='flex flex-col sm:flex-row items-start gap-5 mt-5'>
-        <button className={`py-1 px-3 border rounded text-sm transition-all sm:hidden ${showFilter? 'bg-[#0F766E] text-white border-transparent' :'border-gray-300'}`} onClick={()=>setshowFilter(prev=>!prev)}>Filters</button>
+        <button className={`py-1 px-3 border rounded text-sm transition-all sm:hidden ${showFilter? 'bg-[#334155] text-white border-transparent' :'border-gray-300'}`} onClick={()=>setshowFilter(prev=>!prev)}>Filters</button>
         <div className={`flex-col gap-3 text-sm text-gray-700 ${showFilter ? 'flex' : 'hidden sm:flex'}`}>
           <p
             onClick={() =>
@@ -30,7 +30,7 @@ const Doctors = () => {
                 : navigate('/doctors/General physician')
             }
             className={`w-full sm:w-auto pl-3 py-1.5 pr-16 border rounded transition-all cursor-pointer ${
-              speciality?.trim() === 'General physician' ? 'bg-indigo-100 text-black border-indigo-200' : 'border-gray-300 hover:bg-gray-50'
+              speciality?.trim() === 'General physician' ? 'bg-slate-100 text-black border-slate-200' : 'border-gray-300 hover:bg-gray-50'
             }`}
           >
             General physician
@@ -42,7 +42,7 @@ const Doctors = () => {
                 ? navigate('/doctors')
                 : navigate('/doctors/Gynecologist')
             }
-            className={`w-full sm:w-auto pl-3 py-1.5 pr-16 border rounded transition-all cursor-pointer ${speciality?.trim() === 'Gynecologist' ? 'bg-indigo-100 text-black border-indigo-200' : 'border-gray-300 hover:bg-gray-50'}`}>
+            className={`w-full sm:w-auto pl-3 py-1.5 pr-16 border rounded transition-all cursor-pointer ${speciality?.trim() === 'Gynecologist' ? 'bg-slate-100 text-black border-slate-200' : 'border-gray-300 hover:bg-gray-50'}`}>
             Gynecologist
           </p>
 
@@ -53,7 +53,7 @@ const Doctors = () => {
                 : navigate('/doctors/Dermatologist')
             }
             className={`w-full sm:w-auto pl-3 py-1.5 pr-16 border rounded transition-all cursor-pointer ${
-              speciality?.trim() === 'Dermatologist' ? 'bg-indigo-100 text-black border-indigo-200' : 'border-gray-300 hover:bg-gray-50'
+              speciality?.trim() === 'Dermatologist' ? 'bg-slate-100 text-black border-slate-200' : 'border-gray-300 hover:bg-gray-50'
             }`}
           >
             Dermatologist
@@ -66,7 +66,7 @@ const Doctors = () => {
                 : navigate('/doctors/Pediatricians')
             }
             className={`w-full sm:w-auto pl-3 py-1.5 pr-16 border rounded transition-all cursor-pointer ${
-              speciality?.trim() === 'Pediatricians' ? 'bg-indigo-100 text-black border-indigo-200' : 'border-gray-300 hover:bg-gray-50'
+              speciality?.trim() === 'Pediatricians' ? 'bg-slate-100 text-black border-slate-200' : 'border-gray-300 hover:bg-gray-50'
             }`}
           >
             Pediatricians
@@ -79,7 +79,7 @@ const Doctors = () => {
                 : navigate('/doctors/Neurologist')
             }
             className={`w-full sm:w-auto pl-3 py-1.5 pr-16 border rounded transition-all cursor-pointer ${
-              speciality?.trim() === 'Neurologist' ? 'bg-indigo-100 text-black border-indigo-200' : 'border-gray-300 hover:bg-gray-50'
+              speciality?.trim() === 'Neurologist' ? 'bg-slate-100 text-black border-slate-200' : 'border-gray-300 hover:bg-gray-50'
             }`}
           >
             Neurologist
@@ -92,7 +92,7 @@ const Doctors = () => {
                 : navigate('/doctors/Gastroenterologist')
             }
             className={`w-full sm:w-auto pl-3 py-1.5 pr-16 border rounded transition-all cursor-pointer ${
-              speciality?.trim() === 'Gastroenterologist' ? 'bg-indigo-100 text-black border-indigo-200' : 'border-gray-300 hover:bg-gray-50'
+              speciality?.trim() === 'Gastroenterologist' ? 'bg-slate-100 text-black border-slate-200' : 'border-gray-300 hover:bg-gray-50'
             }`}
           >
             Gastroenterologist
@@ -104,10 +104,10 @@ const Doctors = () => {
             <div
               key={index}
               onClick={() => navigate(`/appointment/${item._id}`)}
-              className='group flex flex-col border border-blue-200 rounded-xl overflow-hidden cursor-pointer bg-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md'
+              className='group flex flex-col border border-slate-200 rounded-xl overflow-hidden cursor-pointer bg-white hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md'
             >
               <img 
-                className='bg-blue-50 w-full h-48 object-cover' 
+                className='bg-slate-50 w-full h-48 object-cover' 
                 src={item.image} 
                 alt={item.name}
                 onError={(e) => {

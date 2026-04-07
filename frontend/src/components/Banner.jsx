@@ -7,7 +7,7 @@ const Banner = () => {
 
 
   return (
-    <div className='flex flex-col md:flex-row items-center bg-[#0F766E] rounded-2xl px-6 sm:px-10 md:px-12 lg:px-14 my-20 md:mx-10 overflow-hidden shadow-md shadow-blue-500/20'>
+    <div className='my-20 flex flex-col items-center overflow-hidden rounded-3xl border border-slate-200 bg-slate-800 px-6 shadow-sm md:mx-10 md:flex-row md:px-12 lg:px-14'>
      
      {/*Left side*/}
      <div className='flex-1 w-full text-center md:text-left py-10 md:py-14 lg:py-20 lg:pl-6 space-y-6'>
@@ -17,7 +17,7 @@ const Banner = () => {
         </div>
         <button
           onClick={()=>{navigate('/login');scrollTo(0,0)}}
-          className='inline-flex items-center justify-center bg-white text-sm sm:text-base text-gray-700 px-8 py-3 rounded-full shadow-md shadow-black/10 hover:-translate-y-0.5 active:translate-y-0 transition-transform duration-200'
+          className='inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-sm text-slate-700 shadow-sm transition-colors duration-200 hover:bg-slate-100 sm:text-base'
         >Create Account</button>
      </div>
    

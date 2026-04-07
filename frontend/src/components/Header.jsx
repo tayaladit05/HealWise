@@ -8,7 +8,7 @@ import header_img from "../assets/create2.jpeg";
 const Header = () => {
   return (
     <header
-      className="relative bg-[#0F766E] rounded-2xl overflow-hidden shadow-lg"
+      className="relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-800 shadow-sm"
       aria-label="MediNexus hero"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 lg:px-14 py-8 sm:py-10 md:py-14">
@@ -39,7 +39,7 @@ const Header = () => {
               to="/doctors"
               onClick={() => window.scrollTo(0, 0)}
               aria-label="Book appointment"
-              className="inline-flex items-center gap-3 bg-white text-gray-700 px-6 py-2.5 rounded-full text-xs sm:text-sm md:text-base font-semibold shadow-md hover:shadow-lg transform transition duration-200 hover:scale-105 active:scale-95 mt-6 w-max"
+              className="mt-6 inline-flex w-max items-center gap-3 rounded-full bg-white px-6 py-2.5 text-xs font-semibold text-slate-700 shadow-sm transition duration-200 hover:bg-slate-100 sm:text-sm md:text-base"
             >
               <span>Book Appointment</span>
               <img src={arrow_icon} alt="" className="w-4 h-4" aria-hidden="true" />
@@ -62,7 +62,7 @@ const Header = () => {
       </div>
 
       {/* Decorative overlay to ensure text contrast on small screens */}
-      <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-[#0F766E]/80 via-[#0F766E]/50 to-transparent md:from-transparent md:via-transparent md:to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-slate-900/50 via-slate-900/20 to-transparent md:from-transparent md:via-transparent md:to-transparent" />
     </header>
   );
 };
